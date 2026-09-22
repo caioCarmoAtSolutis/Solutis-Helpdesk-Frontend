@@ -1,14 +1,12 @@
-import Dashboard from "./Dashboard";
 import "./ContentBox.css";
+import type React from "react";
 
-function ContentBox() {
-  return (
-    <>
-      <div className="content-box">
-        <Dashboard />
-      </div>
-    </>
-  );
+interface ContentBoxProps {
+  children: React.ReactNode;
+}
+
+function ContentBox(props: ContentBoxProps) {
+  return <div className="content-box">{props.children}</div>;
 }
 
 export default ContentBox;

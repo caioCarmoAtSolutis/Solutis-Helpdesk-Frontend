@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateTicketPage from "./pages/CreateTicketPage.tsx";
 import ListTicketsPage from "./pages/ListTicketsPage.tsx";
 import DisplayTicketPage from "./pages/DisplayTicketPage.tsx";
+import "./main.css";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
     element: <CreateTicketPage />,
   },
   {
-    path: "/listar-tickets",
+    path: "/listar-chamados",
     element: <ListTicketsPage />,
   },
   {

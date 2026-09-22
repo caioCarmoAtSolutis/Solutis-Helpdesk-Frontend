@@ -1,12 +1,15 @@
 import NavBar from "./components/NavBar";
 import ContentBox from "./components/ContentBox";
-import "./App.css";
+import Dashboard from "./components/Dashboard";
+import "./pages/page.css";
 
 function App() {
   return (
-    <div className="app">
+    <div className="page">
       <NavBar />
-      <ContentBox />
+      <ContentBox>
+        <Dashboard />
+      </ContentBox>
     </div>
   );
 }

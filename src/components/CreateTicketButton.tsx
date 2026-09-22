@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import "./CreateTicketButton.css";
 
 function CreateTicketButton() {
   const navigate = useNavigate();

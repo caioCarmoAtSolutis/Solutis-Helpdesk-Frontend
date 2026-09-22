@@ -1,4 +1,6 @@
 import "./Dashboard.css";
+import MainPane from "./MainPane";
+import "./MainPane.css";
 
 function Dashboard() {
   let totalNumberOfTickets = 0;
@@ -8,7 +10,7 @@ function Dashboard() {
   let criticalTickets = 0;
 
   return (
-    <div className="container-fluid" id="dashboard">
+    <MainPane>
       <div className="container text-center">
         <div className="row">
           <div className="col">
@@ -53,7 +55,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
-    </div>
+    </MainPane>
   );
 }
 
