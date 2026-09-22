@@ -11,7 +11,7 @@ function NavBarItems() {
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/listar-tickets">
-            Listar Chamados
+            Chamados
           </a>
         </li>
       </ul>

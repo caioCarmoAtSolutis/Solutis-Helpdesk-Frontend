@@ -4,7 +4,7 @@ function ListTicketsPage() {
   return (
     <>
       <NavBar />
-      <h1>Listar Chamados</h1>;
+      <h1>Chamados</h1>
     </>
   );
 }
