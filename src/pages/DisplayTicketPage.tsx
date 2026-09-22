@@ -1,5 +1,12 @@
+import NavBar from "../components/NavBar";
+
 function DisplayTicketPage() {
-  return <h1>Ticket</h1>;
+  return (
+    <>
+      <NavBar />
+      <h1>Chamado</h1>
+    </>
+  );
 }
 
 export default DisplayTicketPage;
