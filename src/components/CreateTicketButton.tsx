@@ -1,8 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import "./CreateTicketButton.css";
 
 function CreateTicketButton() {
+  const navigate = useNavigate();
+
   return (
-    <button type="button" className="btn btn-outline-primary">
+    <button
+      onClick={() => navigate("/criar-chamado")}
+      type="button"
+      className="btn btn-outline-primary"
+    >
       Abrir chamado
     </button>
   );
