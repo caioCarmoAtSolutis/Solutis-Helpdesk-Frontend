@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     element: <ListTicketsPage />,
   },
   {
-    path: "/detalhar/",
+    path: "/detalhar/:id",
     element: <DisplayTicketPage />,
   },
 ]);
