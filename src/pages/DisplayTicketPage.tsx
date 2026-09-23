@@ -1,6 +1,7 @@
 import NavBar from "../components/NavBar";
 import ContentBox from "../components/ContentBox";
 import MainPane from "../components/MainPane";
+import DisplayTicket from "../components/DisplayTicket";
 import "./page.css";
 import { useParams } from "react-router-dom";
 
@@ -13,6 +14,7 @@ function DisplayTicketPage() {
       <ContentBox>
         <MainPane>
           <h1>Chamado {id}</h1>
+          <DisplayTicket></DisplayTicket>
         </MainPane>
       </ContentBox>
     </div>
