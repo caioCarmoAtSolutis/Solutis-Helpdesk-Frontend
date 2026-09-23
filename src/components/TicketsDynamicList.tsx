@@ -5,12 +5,21 @@ export type Status = "OPEN" | "IN_PROGRESS" | "RESOLVED";
 
 export interface Ticket {
   id: string;
-  userName: String;
+  technicianId: String;
+  customerId: String;
   title: string;
-  category: string;
-  priority: Priority;
-  status: Status;
+  description: string;
+  category: {
+    category: string;
+  };
+  priority: {
+    priority: string;
+  };
+  status: {
+    status: string;
+  };
   createdAt: string;
+  updatedAt: string;
 }
 
 interface TicketsDynamicListProps {
@@ -21,10 +30,10 @@ function renderTicketItem(ticket: Ticket) {
   const navigate = useNavigate();
   let badgeClass = "table-light";
 
-  if (ticket.status === "RESOLVED") {
+  if (ticket.status.status === "RESOLVED") {
     badgeClass = "table-success";
   } else {
-    switch (ticket.priority) {
+    switch (ticket.priority.priority) {
       case "LOW":
       case "MEDIUM":
         badgeClass = "table-info";
@@ -42,14 +51,15 @@ function renderTicketItem(ticket: Ticket) {
     <tr
       key={ticket.id}
       className={`${badgeClass}`}
-      onClick={() => navigate(`/detalhar/${ticket.id}`)}
+      onClick={() => navigate(`/detalhar/${ticket.id}`, { state: { ticket } })}
     >
       <td>{ticket.title}</td>
-      <td>{ticket.userName || "—"}</td>
-      <td>{ticket.status}</td>
-      <td>{ticket.category || "—"}</td>
-      <td>{ticket.priority}</td>
-      <td>{ticket.createdAt || "—"}</td>
+      <td>{ticket.technicianId || "—"}</td>
+      <td>{ticket.customerId}</td>
+      <td>{ticket.status.status}</td>
+      <td>{ticket.category.category}</td>
+      <td>{ticket.priority.priority}</td>
+      <td>{ticket.createdAt || "-"}</td>
     </tr>
   );
 }
