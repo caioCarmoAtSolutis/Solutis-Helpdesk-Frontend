@@ -1,15 +1,17 @@
 import NavBar from "../components/NavBar";
 import ContentBox from "../components/ContentBox";
-import MainPane from "../components/MainPane";
 import DisplayTicket from "../components/DisplayTicket";
 import { useLocation, useParams } from "react-router-dom";
 import type { Ticket } from "../components/TicketsDynamicList";
-import "./page.css";
+import "./Page.css";
+import "./Box.css";
 
 function DisplayTicketPage() {
   const { state } = useLocation();
   const { id } = useParams();
   const ticket = state?.ticket as Ticket;
+
+  console.log(ticket);
 
   if (!ticket) {
     console.log("Ticket undefined!");
@@ -19,10 +21,9 @@ function DisplayTicketPage() {
     <div className="page">
       <NavBar />
       <ContentBox>
-        <MainPane>
-          <h1>Chamado {id}</h1>
+        <div className="box">
           <DisplayTicket ticket={ticket} />
-        </MainPane>
+        </div>
       </ContentBox>
     </div>
   );

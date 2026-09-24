@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
 export type Priority = "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
-export type Status = "OPEN" | "IN_PROGRESS" | "RESOLVED";
 
 export interface Ticket {
   id: string;
