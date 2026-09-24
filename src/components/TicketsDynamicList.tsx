@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, type NavigateFunction } from "react-router-dom";
 
 export type Priority = "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
 
 export interface Ticket {
   id: string;
-  technicianId: String;
-  customerId: String;
+  technicianId: string;
+  customerId: string;
   title: string;
   description: string;
   category: {
@@ -25,8 +25,7 @@ interface TicketsDynamicListProps {
   dynamicTicketsList: Ticket[];
 }
 
-function renderTicketItem(ticket: Ticket) {
-  const navigate = useNavigate();
+function renderTicketItem(ticket: Ticket, navigate: NavigateFunction) {
   let badgeClass = "table-light";
 
   if (ticket.status.status === "RESOLVED") {
@@ -49,7 +48,7 @@ function renderTicketItem(ticket: Ticket) {
   return (
     <tr
       key={ticket.id}
-      className={`${badgeClass}`}
+      className={badgeClass}
       onClick={() => navigate(`/detalhar/${ticket.id}`, { state: { ticket } })}
     >
       <td>{ticket.title}</td>
@@ -66,5 +65,11 @@ function renderTicketItem(ticket: Ticket) {
 export default function TicketsDynamicList({
   dynamicTicketsList,
 }: TicketsDynamicListProps) {
-  return dynamicTicketsList.map((ticket) => renderTicketItem(ticket));
+  const navigate = useNavigate();
+
+  return (
+    <>
+      {dynamicTicketsList.map((ticket) => renderTicketItem(ticket, navigate))}
+    </>
+  );
 }

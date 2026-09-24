@@ -1,14 +1,13 @@
 import NavBar from "../components/NavBar";
 import ContentBox from "../components/ContentBox";
 import DisplayTicket from "../components/DisplayTicket";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import type { Ticket } from "../components/TicketsDynamicList";
 import "./Page.css";
 import "./Box.css";
 
 function DisplayTicketPage() {
   const { state } = useLocation();
-  const { id } = useParams();
   const ticket = state?.ticket as Ticket;
 
   console.log(ticket);

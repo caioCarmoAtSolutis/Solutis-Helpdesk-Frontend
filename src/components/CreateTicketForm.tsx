@@ -13,7 +13,7 @@ interface TicketFormData {
   priority: string;
 }
 
-function getCategory(category: string) {
+export function getCategory(category: string) {
   switch (category) {
     case "Software":
       return "SOFTWARE";
@@ -24,7 +24,7 @@ function getCategory(category: string) {
   }
 }
 
-function getPriority(priority: string) {
+export function getPriority(priority: string) {
   switch (priority) {
     case "Baixa":
       return "LOW";
