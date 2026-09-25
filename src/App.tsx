@@ -1,7 +1,7 @@
 import NavBar from "./components/NavBar";
 import ContentBox from "./components/ContentBox";
 import Dashboard from "./components/Dashboard";
-import "./pages/page.css";
+import "./pages/Page.css";
 
 function App() {
   return (

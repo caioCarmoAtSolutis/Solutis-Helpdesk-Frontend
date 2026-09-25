@@ -2,7 +2,7 @@ import NavBar from "../components/NavBar";
 import ContentBox from "../components/ContentBox";
 import MainPane from "../components/MainPane";
 import TicketsTable from "../components/TicketsTable";
-import "./page.css";
+import "./Page.css";
 
 function ListTicketsPage() {
   return (

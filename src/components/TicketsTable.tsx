@@ -44,7 +44,7 @@ function applyFilters(
 
     const matchesCategory =
       filters.category === ANY ||
-      ticket.category?.category === filters.category;
+      ticket.category?.category === filters.category.toLocaleUpperCase();
 
     const matchesStatus =
       filters.status === ANY ||
@@ -119,7 +119,7 @@ function TicketsTable() {
             }
           >
             <option key="any" value={ANY}>
-              qualquer
+              Todos
             </option>
             {STATUS_OPTIONS.map((status) => (
               <option key={status} value={status}>
@@ -137,7 +137,7 @@ function TicketsTable() {
             }
           >
             <option key="any" value={ANY}>
-              qualquer
+              Todos
             </option>
             {CATEGORY_OPTIONS.map((category) => (
               <option key={category} value={category}>
@@ -155,7 +155,7 @@ function TicketsTable() {
             }
           >
             <option key="any" value={ANY}>
-              qualquer
+              Todos
             </option>
             {PRIORITY_OPTIONS.map((priority) => (
               <option key={priority} value={priority}>
@@ -166,7 +166,7 @@ function TicketsTable() {
         </div>
         <input
           type="text"
-          className="form-control"
+          className="form-control shadow-none"
           placeholder="Pesquisar por título"
           value={draftFilters.titulo}
           onChange={(e) =>

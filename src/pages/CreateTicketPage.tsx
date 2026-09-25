@@ -1,7 +1,7 @@
 import NavBar from "../components/NavBar";
 import ContentBox from "../components/ContentBox";
 import CreateTicketForm from "../components/CreateTicketForm";
-import "./page.css";
+import "./Page.css";
 
 function CreateTicketPage() {
   return (

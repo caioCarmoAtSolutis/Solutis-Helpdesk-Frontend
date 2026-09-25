@@ -20,7 +20,7 @@ function DisplayTicketPage() {
     <div className="page">
       <NavBar />
       <ContentBox>
-        <div className="box">
+        <div className="box form-box">
           <DisplayTicket ticket={ticket} />
         </div>
       </ContentBox>

@@ -107,7 +107,7 @@ function CreateTicketForm() {
       <div className="form-group">
         <label htmlFor="title">Título</label>
         <input
-          className={`form-control ${errors?.title} input-error`}
+          className={`form-control ${errors?.title} input-error shadow-none`}
           id="title"
           placeholder="Título do chamado"
           {...register("title", { required: true })}
@@ -119,7 +119,7 @@ function CreateTicketForm() {
       <div className="form-group">
         <label htmlFor="clientId">Id do cliente</label>
         <input
-          className={`form-control ${errors?.customerId} input-error`}
+          className={`form-control ${errors?.customerId} input-error shadow-none`}
           id="clientId"
           placeholder="id do cliente"
           {...register("customerId", { required: true })}
@@ -131,7 +131,7 @@ function CreateTicketForm() {
       <div className="form-group">
         <label htmlFor="description-text-area">Descrição</label>
         <textarea
-          className={`form-control ${errors?.description} input-error`}
+          className={`form-control ${errors?.description} input-error shadow-none`}
           id="description-text-area"
           rows={3}
           placeholder="Descrição completa do problema"
@@ -144,7 +144,7 @@ function CreateTicketForm() {
       <div className="select-field">
         <label htmlFor="select-category">Categoria</label>
         <select
-          className="form-control"
+          className="form-control shadow-none"
           id="select-category"
           {...register("category", { required: true })}
         >
@@ -156,7 +156,7 @@ function CreateTicketForm() {
       <div className="select-field">
         <label htmlFor="select-priority">Prioridade</label>
         <select
-          className="form-control"
+          className="form-control shadow-none"
           id="select-priority"
           {...register("priority", { required: true })}
         >

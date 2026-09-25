@@ -1,4 +1,5 @@
 import { useNavigate, type NavigateFunction } from "react-router-dom";
+import { formatDate } from "./DisplayTicket";
 
 export type Priority = "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
 
@@ -57,7 +58,7 @@ function renderTicketItem(ticket: Ticket, navigate: NavigateFunction) {
       <td>{ticket.status.status}</td>
       <td>{ticket.category.category}</td>
       <td>{ticket.priority.priority}</td>
-      <td>{ticket.createdAt || "-"}</td>
+      <td>{formatDate(ticket.createdAt)}</td>
     </tr>
   );
 }

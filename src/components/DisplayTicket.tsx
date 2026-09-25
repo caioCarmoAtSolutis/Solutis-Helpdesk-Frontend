@@ -75,6 +75,22 @@ export function getPriorityLabel(priorityEnum?: string | null): string {
   }
 }
 
+export function formatDate(isoString?: string | null): string {
+  if (!isoString) return "-";
+
+  const date = new Date(isoString);
+  if (isNaN(date.getTime())) return "-";
+
+  return new Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "America/Sao_Paulo",
+  }).format(date);
+}
+
 function renderTechnicians(technicians: User[]) {
   return technicians
     .filter((technician) => technician.active)
@@ -183,8 +199,8 @@ function DisplayTicket({ ticket }: TicketProps) {
       <p>{ticket.status?.status || "Status: -"}</p>
       <p>{ticket.category?.category || "Category: -"}</p>
       <p>{ticket.priority?.priority || "Priority: -"}</p>
-      <p>Criado em {ticket.createdAt || "-"}</p>
-      <p>Última atualização {ticket.updatedAt || "-"}</p>
+      <p>Criado em {formatDate(ticket.createdAt)}</p>
+      <p>Última atualização {formatDate(ticket.updatedAt)}</p>
       <hr />
 
       {error && (
@@ -200,7 +216,7 @@ function DisplayTicket({ ticket }: TicketProps) {
               Atribuir técnico
             </label>
             <select
-              className="form-control"
+              className="form-control shadow-none"
               id="select-technician"
               value={selectedTechnicianId}
               onChange={(e) => setSelectedTechnicianId(e.target.value)}
@@ -218,7 +234,7 @@ function DisplayTicket({ ticket }: TicketProps) {
               Status
             </label>
             <select
-              className="form-control"
+              className="form-control shadow-none"
               id="select-status"
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
@@ -232,11 +248,11 @@ function DisplayTicket({ ticket }: TicketProps) {
           </div>
 
           <div className="col-auto">
-            <label className="sr-only" htmlFor="select-priority">
+            <label className="sr-only shadow-none" htmlFor="select-priority">
               Prioridade
             </label>
             <select
-              className="form-control"
+              className="form-control shadow-none"
               id="select-priority"
               value={selectedPriority}
               onChange={(e) => setSelectedPriority(e.target.value)}
@@ -252,7 +268,7 @@ function DisplayTicket({ ticket }: TicketProps) {
           <div className="col-auto">
             <button
               type="submit"
-              className="btn btn-primary mb-2"
+              className="btn btn-outline-primary"
               disabled={submitting}
             >
               {submitting ? "Enviando..." : "Submit"}
